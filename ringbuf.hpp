@@ -10,13 +10,16 @@ class RingBuffer {
     T* _pTail;
     T* _pHead;
     bool _empty;
-    RingBuffer(size_t sz);
-    _buf = new T[_size];
+    RingBuffer(size_t sz) : _size(sz), _empty(true)
+    {
+        _buf = new T[_size];
+        _pHead = _pTail = _buf;
+    }
     ~RingBuffer()
     {
         delete [] _buf;
     }
-    
+
 
 };
 
